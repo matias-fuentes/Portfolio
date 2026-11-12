@@ -1,0 +1,17 @@
+{
+  // 1. Force the Tab key to insert 2 spaces
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  // 2. Stop VS Code from guessing indentation from existing files (Crucial!)
+  "editor.detectIndentation": false,
+
+  // 3. Set Prettier as the default formatter for TypeScript / React
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // 4. Automatically reformat whenever you save a file
+  "editor.formatOnSave": true
+}

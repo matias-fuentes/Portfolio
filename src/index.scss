@@ -1,0 +1,59 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  padding: 1.5rem 1rem;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(2rem); // Starts 2 rems down.
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); // Moves to its natural position.
+  }
+}
+
+.slideUp {
+  opacity: 0; // Keeps it hidden before animation starts.
+}
+
+.slideUpVisible {
+  animation: slideUpFade 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.25s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.5s;
+}
+
+.text-muted {
+  color: rgb(135, 138, 143);
+}
+
+// Desktop.
+@media (width >= 1024px) {
+  #root {
+    padding: 2rem 3rem;
+  }
+}

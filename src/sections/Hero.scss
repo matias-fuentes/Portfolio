@@ -1,0 +1,320 @@
+.heroWrapper {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.header {
+  z-index: 2;
+  height: 4rem;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-start;
+
+  &__logo {
+    cursor: pointer;
+    margin-right: 1.5rem;
+  }
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: 0.1rem;
+  }
+
+  & > p {
+    margin: 0;
+    font-size: 0.75rem;
+    margin-bottom: 0.55rem;
+    letter-spacing: 0.4rem;
+  }
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  margin-bottom: 7rem;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.heroContent {
+  & > h1 {
+    margin: 1rem 0rem;
+    text-wrap: balance;
+    font-size: 1.375rem;
+    letter-spacing: -0.075rem;
+  }
+
+  & > h3 {
+    display: none;
+    margin: 1rem 0rem 2rem 0rem;
+    text-wrap: balance;
+  }
+
+  &__btnPrimary {
+    margin-right: 0.75rem;
+  }
+}
+
+.heroBtnContainer {
+  gap: 0.75rem;
+  display: flex;
+
+  & > a {
+    font-size: 0.75rem;
+  }
+}
+
+.heroImageWrapper,
+.heroBgImageWrapper {
+  z-index: -1;
+  position: absolute;
+}
+
+.heroBgImageWrapper {
+  display: none;
+}
+
+.heroImageWrapper {
+  right: 0;
+  top: 4rem;
+  height: 80%;
+  transition: opacity 0.05s linear;
+  will-change: opacity; // Informs browser to optimize GPU rendering
+
+  &__image {
+    height: 100%;
+  }
+}
+
+// Mid-range mobile phones.
+@media (width >= 400px) {
+  .header {
+    height: 6rem;
+  }
+
+  .headerContent > p {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero {
+    margin-bottom: 8rem;
+  }
+
+  .heroContent > h1 {
+    font-size: 1.625rem;
+  }
+
+  .heroBtnContainer > a {
+    font-size: 1rem;
+  }
+
+  .heroImageWrapper {
+    top: 6rem;
+  }
+}
+
+/* Exceptionally small windows, wide windows with an unusually small height, square-like small windows,
+as well as any PC, laptop, or big enough tablet that has a window height of 824px or less.
+
+This specific set of media queries are put in place to ensure that the hero section is responsive and looks good on a
+wide variety of small window sizes on devices with relatively big screens (i.e., screens that *generally* (not always)
+have a low amount of Pixels Per Inch compared to mobile phones), without overstepping on styles for devices with a high
+density of Pixels Per Inch, such as mobile phones.
+
+"Relatively big screens" refers to any screen that has ≈13-14 inches or more, with a screen resolution of ≈1920x1080 or
+more (do not confuse screen resolution with window size). */
+@media ((width <= 576px)
+ and (height <= 576px)) or ((width <= 896px)
+ and (height <= 448px)) or ((width <= 768px)
+ and (height <= 768px) and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3)) or (max-resolution: 1.75dppx) or ((height <= 720px) 
+ and (hover: hover) and (pointer: fine) and (max-resolution: 2.5dppx)) {
+  .heroWrapper {
+    min-height: 45rem;
+  }
+
+  .hero {
+    margin-bottom: 6rem;
+  }
+
+  .heroImageWrapper {
+    top: 6rem;
+    right: calc(50% + 4rem);
+    transform: translateX(50%);
+  }
+}
+
+// Large, high-end phones / small, medium-range tablets.
+@media (width >= 640px) {
+  .heroContent {
+    width: 80%;
+  }
+
+  .heroImageWrapper {
+    right: calc(50% + 4rem);
+    transform: translateX(50%);
+  }
+}
+
+// Hides hero content description because of lack of space,
+// unless the height is larger than 896px (see media query from above).
+@media (width >= 640px) and (height <= 896px) {
+  .heroWrapper {
+    min-height: 45rem;
+  }
+
+  .heroContent > h3 {
+    display: none;
+  }
+}
+
+// Large tablets.
+@media (width >= 896px) {
+  .hero {
+    margin-bottom: 0;
+    justify-content: center;
+  }
+
+  .heroContent {
+    width: 60%;
+
+    & > h3 {
+      display: block;
+    }
+  }
+
+  .heroBgImageWrapper {
+    left: 0;
+    top: 2rem;
+    display: block;
+
+    &__image {
+      width: 100%;
+      height: 320px;
+      fill: #f9f9f9;
+
+      &--dark {
+        fill: #101010;
+      }
+    }
+  }
+
+  .heroImageWrapper {
+    right: 0;
+    top: 5rem;
+    height: 90%;
+    transform: none;
+  }
+}
+
+// Reduces margin bottom from hero description for any window width that is smaller than 1024px,
+// to ensure that the gap between each element from the hero section is visually consistent.
+@media (width < 1024px) {
+  .heroContent > h3 {
+    margin: 1rem 0rem 1.5rem 0rem;
+  }
+}
+
+// Old desktop screens and low-end laptops.
+@media (width >= 1024px) {
+  .header {
+    height: 8rem;
+
+    &__logo {
+      margin-right: 2rem;
+    }
+  }
+
+  .headerContent {
+    > h2 {
+      font-size: 1.75rem;
+    }
+
+    & > p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .hero {
+    margin-bottom: 6rem;
+  }
+
+  .heroContent {
+    width: 65%;
+
+    & > h1 {
+      font-size: 3rem;
+    }
+
+    & > h3 {
+      display: block;
+    }
+  }
+
+  .heroImageWrapper {
+    top: 2rem;
+  }
+}
+
+@media (width >= 1024px) and (width <= 1280px) {
+  .header {
+    height: 6rem;
+  }
+}
+
+// Laptops.
+@media (width >= 1536px) {
+  .headerContent {
+    & > h2 {
+      font-size: 2rem;
+    }
+
+    & > p {
+      font-size: 1.25rem;
+    }
+  }
+
+  .hero {
+    margin-bottom: 2rem;
+  }
+
+  .heroContent {
+    & > h1 {
+      font-size: 3.5rem;
+    }
+
+    & > h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .heroImageWrapper {
+    height: 100%;
+  }
+}
+
+// Large screens (PCs and laptops).
+@media (width >= 1792px) {
+  .hero {
+    flex: none;
+    min-height: 35rem;
+    margin-bottom: 4rem;
+    height: calc(90vh - 6rem);
+  }
+
+  .heroImageWrapper {
+    right: 4rem;
+    height: 90vh;
+    min-height: 45rem;
+  }
+}

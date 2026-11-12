@@ -1,0 +1,11 @@
+.projects {
+  margin-top: 0px;
+  text-align: center;
+}
+
+// Desktop.
+@media (width >= 1024px) {
+  .projects {
+    margin-top: 21px;
+  }
+}

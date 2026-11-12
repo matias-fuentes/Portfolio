@@ -1,0 +1,20 @@
+{
+  "short_name": "Matías Fuentes' portfolio",
+  "name": "Matías Fuentes' portfolio",
+  "icons": [
+    {
+      "sizes": "331x331",
+      "type": "image/svg",
+      "src": "wolf_logo_light.svg"
+    },
+    {
+      "sizes": "331x331",
+      "type": "image/svg",
+      "src": "wolf_logo_dark.svg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
